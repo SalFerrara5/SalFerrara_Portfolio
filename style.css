@@ -50,14 +50,14 @@ header {
 
 /* Hero */
 .hero {
-  position: relative; /* needed for overlay */
-  background: url('images/hero-bg.jpg') center/cover no-repeat;
+  position: relative;
+  background: url('images/hero_background.jpg') center/cover no-repeat;
   height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #fff; /* text color */
+  color: #fff;
   padding: 0 1rem;
   margin-top: 60px;
   overflow: hidden;
