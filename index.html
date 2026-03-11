@@ -4,43 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sal's Portfolio</title>
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Sal's Portfolio</h1>
-      <nav>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+
+  <!-- Header / Navigation -->
+  <header id="header">
+    <nav class="nav container">
+      <div class="logo">Sal</div>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1>Hi, I'm Sal</h1>
+      <p>Electrical Engineering Student | Project & Portfolio Showcase</p>
+      <a href="#projects" class="btn-hero">See My Work</a>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
   <section id="projects" class="section">
     <div class="container">
       <h2>Projects</h2>
       <div class="grid">
         <div class="card">
-          <img src="images/project1.png" alt="Project 1 Screenshot">
+          <img src="images/project1.png" alt="Project 1">
           <h3>Project 1</h3>
-          <p>Short description of project 1. What it does, technologies used, etc.</p>
+          <p>Short description of project 1. Technologies used, features, etc.</p>
           <a href="https://github.com/username/project1" class="btn">View on GitHub</a>
         </div>
         <div class="card">
-          <img src="images/project2.png" alt="Project 2 Screenshot">
+          <img src="images/project2.png" alt="Project 2">
           <h3>Project 2</h3>
-          <p>Short description of project 2. Highlight something cool you did.</p>
+          <p>Short description of project 2. Highlight something unique or cool.</p>
           <a href="https://github.com/username/project2" class="btn">View on GitHub</a>
         </div>
-        <!-- Add more projects by copying a card -->
+        <!-- Add more cards for additional projects -->
       </div>
     </div>
   </section>
 
+  <!-- Experience Section -->
   <section id="experience" class="section">
     <div class="container">
       <h2>Experience</h2>
@@ -51,16 +63,35 @@
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact" class="section">
     <div class="container">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
       <p>GitHub: <a href="https://github.com/username">github.com/username</a></p>
+      <div class="social-links">
+        <a href="https://linkedin.com/in/username" target="_blank">LinkedIn</a>
+        <a href="https://github.com/username" target="_blank">GitHub</a>
+      </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <p>© 2026 Sal</p>
   </footer>
+
+  <!-- Smooth Scroll Script -->
+  <script>
+    const links = document.querySelectorAll('nav a');
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
 </body>
 </html>
