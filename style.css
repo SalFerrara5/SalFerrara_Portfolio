@@ -79,6 +79,27 @@ header {
   text-shadow: 0 2px 6px rgba(0,0,0,0.4);
 }
 
+/* Desktop / default sizes */
+.hero .hero-content h1 {
+  font-size: 4rem;   /* main heading bigger */
+  margin-bottom: 0.5rem;
+}
+
+.hero .hero-content p {
+  font-size: 1.5rem; /* subtitle bigger */
+  color: #555;       /* optional: softer color */
+}
+
+/* Responsive sizes for smaller screens */
+@media (max-width: 768px) {
+  .hero .hero-content h1 {
+    font-size: 3rem;
+  }
+  .hero .hero-content p {
+    font-size: 1.2rem;
+  }
+}
+
 /* fade-in keyframes */
 @keyframes fadeInUp {
   to {
