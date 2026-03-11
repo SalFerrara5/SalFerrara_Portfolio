@@ -87,7 +87,7 @@ header {
 
 .hero .hero-content p {
   font-size: 1.5rem; /* subtitle bigger */
-  color: #555;       /* optional: softer color */
+  color: #FFF;       /* optional: softer color */
 }
 
 /* Responsive sizes for smaller screens */
