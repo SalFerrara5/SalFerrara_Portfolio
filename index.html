@@ -4,37 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sal's Portfolio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Sal's Projects & Experiences</h1>
-    <nav>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="container">
+      <h1>Sal's Portfolio</h1>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="https://github.com/username/project1">Project 1</a> - short description</li>
-      <li><a href="https://github.com/username/project2">Project 2</a> - short description</li>
-    </ul>
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="images/project1.png" alt="Project 1 Screenshot">
+          <h3>Project 1</h3>
+          <p>Short description of project 1. What it does, technologies used, etc.</p>
+          <a href="https://github.com/username/project1" class="btn">View on GitHub</a>
+        </div>
+        <div class="card">
+          <img src="images/project2.png" alt="Project 2 Screenshot">
+          <h3>Project 2</h3>
+          <p>Short description of project 2. Highlight something cool you did.</p>
+          <a href="https://github.com/username/project2" class="btn">View on GitHub</a>
+        </div>
+        <!-- Add more projects by copying a card -->
+      </div>
+    </div>
   </section>
 
-  <section id="experience">
-    <h2>Experience</h2>
-    <ul>
-      <li>Position, Company, Year</li>
-      <li>Position, Company, Year</li>
-    </ul>
+  <section id="experience" class="section">
+    <div class="container">
+      <h2>Experience</h2>
+      <ul class="experience-list">
+        <li><strong>Position</strong>, Company — 2025</li>
+        <li><strong>Internship</strong>, Another Company — 2024</li>
+      </ul>
+    </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: your.email@example.com</p>
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <p>GitHub: <a href="https://github.com/username">github.com/username</a></p>
+    </div>
   </section>
 
   <footer>
