@@ -13,7 +13,7 @@ a {
   color: #1e90ff;
 }
 
-/* Header */
+/* Header / Nav */
 header {
   position: fixed;
   width: 100%;
@@ -28,13 +28,21 @@ header {
   align-items: center;
   max-width: 1100px;
   margin: auto;
-  padding: 1rem;
+  padding: 1rem 0;
+}
+
+.logo {
+  font-weight: 700;
+  color: #fff;
+  font-size: 1.5rem;
 }
 
 .nav-links {
-  display: flex;
   list-style: none;
-  gap: 1.5rem;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
@@ -47,22 +55,17 @@ header {
   color: #1e90ff;
 }
 
-.logo {
-  font-weight: 700;
-  color: #fff;
-  font-size: 1.5rem;
-}
-
 /* Hero Section */
 .hero {
   background: url('images/hero-bg.jpg') center/cover no-repeat;
-  height: 100vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: #fff;
   padding: 0 1rem;
+  margin-top: 60px; /* offset for fixed header */
 }
 
 .hero h1 {
@@ -91,7 +94,6 @@ header {
 /* Sections */
 .section {
   padding: 6rem 0;
-  margin-top: 80px; /* offset for fixed header */
 }
 
 .container {
@@ -118,65 +120,4 @@ header {
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-}
-
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.card h3 {
-  margin: 1rem;
-}
-
-.card p {
-  margin: 0 1rem 1rem;
-}
-
-.btn {
-  display: inline-block;
-  margin: 0 1rem 1rem;
-  padding: 0.5rem 1rem;
-  background: #1e90ff;
-  color: #fff;
-  border-radius: 5px;
-}
-
-.btn:hover {
-  background: #0073e6;
-}
-
-/* Experience */
-.experience-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.experience-list li {
-  background: #fff;
-  margin: 1rem 0;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-}
-
-/* Contact */
-.social-links a {
-  margin-right: 1rem;
-  font-weight: 600;
-  color: #1e90ff;
-}
-
-.social-links a:hover {
-  color: #0073e6;
-}
-
-/* Footer */
-footer {
-  background: #1e1e2f;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-}
+  box-shadow: 0 12px 25px rgba(
