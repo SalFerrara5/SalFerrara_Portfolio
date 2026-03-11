@@ -51,7 +51,7 @@ header {
 /* Hero */
 .hero {
   position: relative;
-  background: url('images/hero-bg.jpg') center/cover no-repeat;
+  background: url('images/hero_background.jpg') center/cover no-repeat;
   background-size: cover; /* ensure the image fully covers the area */
   min-height: 100vh;       /* make it always at least full screen */
   display: flex;
