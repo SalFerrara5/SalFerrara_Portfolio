@@ -13,12 +13,10 @@
   <header>
     <div class="container nav">
       <div class="logo">Sal</div>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+      <nav class="nav-right">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -27,7 +25,7 @@
   <section class="hero" id="hero">
     <div class="hero-content">
       <h1>Hi, I'm Sal</h1>
-      <p>Electrical Engineering Student | Project & Portfolio Showcase</p>
+      <p>Electrical Engineering Student | Projects & Portfolio Showcase</p>
       <a href="#projects" class="btn-hero">See My Work</a>
     </div>
   </section>
@@ -49,7 +47,7 @@
           <p>Short description of project 2. Highlight something unique or cool.</p>
           <a href="https://github.com/username/project2" class="btn">View on GitHub</a>
         </div>
-        <!-- Add more cards for additional projects -->
+        <!-- More project cards here -->
       </div>
     </div>
   </section>
@@ -58,10 +56,16 @@
   <section id="experience" class="section">
     <div class="container">
       <h2>Experience</h2>
-      <ul class="experience-list">
-        <li><strong>Position</strong>, Company — 2025</li>
-        <li><strong>Internship</strong>, Another Company — 2024</li>
-      </ul>
+      <div class="experience-list">
+        <div class="experience-item">
+          <h3>Position</h3>
+          <p>Company — 2025</p>
+        </div>
+        <div class="experience-item">
+          <h3>Internship</h3>
+          <p>Another Company — 2024</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -83,16 +87,30 @@
     <p>© 2026 Sal</p>
   </footer>
 
-  <!-- Smooth Scroll Script -->
+  <!-- Smooth Scroll & Scroll Animations -->
   <script>
     const links = document.querySelectorAll('nav a');
     links.forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
+        document.querySelector(link.getAttribute('href'))
+                .scrollIntoView({ behavior: 'smooth' });
       });
     });
+
+    // Simple scroll fade-in for sections
+    const faders = document.querySelectorAll('.card, .experience-item');
+    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('appear');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
   </script>
 
 </body>
