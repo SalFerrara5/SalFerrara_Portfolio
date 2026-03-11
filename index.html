@@ -72,13 +72,31 @@
   <section id="contact" class="section">
     <div class="container">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:salferrara55555@gmail.com">salferrara55555@gmail.com</a></p>
+      <p>Email: <a href="#" id="emailLink">salferrara55555@gmail.com</a></p>
+  
       <div class="social-links">
         <a href="https://www.linkedin.com/in/salvatore-ferrara-8399ab27a/" target="_blank">LinkedIn</a>
         <a href="https://github.com/SalFerrara5" target="_blank">GitHub</a>
       </div>
     </div>
   </section>
+  
+  <script>
+  const email = "salferrara55555@gmail.com";
+  const link = document.getElementById("emailLink");
+  
+  link.addEventListener("click", function(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(email);
+  
+    const originalText = link.textContent;
+    link.textContent = "Email copied!";
+  
+    setTimeout(() => {
+      link.textContent = originalText;
+    }, 2000);
+  });
+  </script>
 
   <!-- Footer -->
   <footer>
