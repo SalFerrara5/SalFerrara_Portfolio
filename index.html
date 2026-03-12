@@ -18,7 +18,7 @@
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
-        <a href="https://salferrara5.github.io/SalFerrara_Portfolio/about.html">About Me</a>
+        <a href="about.html">About Me</a>
         <a href="https://drive.google.com/file/d/1Gqsgn_rPoTcJtVbdsubpHDqqaTnlndVA/view?usp=sharing" target="_blank" class="no-scroll">Resume</a>
       </nav>
     </div>
@@ -43,7 +43,6 @@
           <p>Fishing Gyzmo – A portable fishing companion that tracks your catches and displays them on a mini-map. Built on an ESP32 with GPS, it logs location, time, and catch details to an SD card. Features a simple touchscreen interface using LVGL for easy navigation and real-time position tracking. Designed for anglers who want a tech edge without bulky gear.</p>
           <a href="https://github.com/SalFerrara5/Fishing-Gyzmo/blob/main/README.md" class="btn">View on GitHub</a>
         </div>
-        
         <div class="card">
           <img src="images/project2.png" alt="Project 2">
           <h3>Ferrite Evo</h3>
@@ -87,7 +86,7 @@
       </div>
     </div>
   </section>
-  
+
   <!-- Contact Section -->
   <section id="contact" class="section">
     <div class="container">
@@ -99,7 +98,7 @@
       </div>
     </div>
   </section>
-  
+
   <!-- Footer -->
   <footer>
     <p>© 2026 Salvatore Ferrara</p>
@@ -110,39 +109,30 @@
     // Copy email to clipboard
     const email = "salferrara55555@gmail.com";
     const link = document.getElementById("emailLink");
-
     link.addEventListener("click", function(e) {
       e.preventDefault();
       navigator.clipboard.writeText(email);
-
       const originalText = link.textContent;
       link.textContent = "Email copied!";
-
-      setTimeout(() => {
-        link.textContent = originalText;
-      }, 2000);
+      setTimeout(() => { link.textContent = originalText; }, 2000);
     });
 
-    // Smooth scroll for nav links
-    const links = document.querySelectorAll('nav a');
-    links.forEach(link => {
-      if (!link.classList.contains('no-scroll')) {
+    // Smooth scroll only for hash links
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href.startsWith("#")) { // only hash links
         link.addEventListener('click', e => {
           e.preventDefault();
-          document.querySelector(link.getAttribute('href'))
-                  .scrollIntoView({ behavior: 'smooth' });
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
         });
       }
     });
 
     // Fade in/out cards, experience, and skills
     const faders = document.querySelectorAll('.card, .experience-item, .skills-item');
-
-    const appearOptions = { 
-      threshold: 0.2,
-      rootMargin: "0px 0px -50px 0px"
-    };
-
+    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
     const appearOnScroll = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -152,7 +142,6 @@
         }
       });
     }, appearOptions);
-
     faders.forEach(fader => appearOnScroll.observe(fader));
   </script>
 
