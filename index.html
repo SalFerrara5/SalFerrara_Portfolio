@@ -138,7 +138,7 @@
     });
 
     // Simple scroll fade-in for sections
-    const faders = document.querySelectorAll('.card, .experience-item');
+    const faders = document.querySelectorAll('.card, .experience-item, .skills-item');
     const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
