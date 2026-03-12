@@ -36,7 +36,6 @@
     <div class="container">
       <h2>Projects</h2>
       <div class="grid">
-        
         <div class="card">
           <img src="images/project1.png" alt="Project 1">
           <h3>Fishing Gyzmo</h3>
@@ -50,8 +49,6 @@
           <p>Ferrite Evo – A large-format 3D printer of my own design with a 500 mm × 500 mm × 500 mm build volume. The system runs on Klipper with Mainsail for remote monitoring and control. Planned features include automatic bed leveling with eddy current scanning, an onboard webcam for timelapses and failure detection, and full remote access over the internet. This is one of my most ambitious builds and is currently still under development.</p>
           <a href="https://github.com/username/project2" class="btn">View on GitHub</a>
         </div>
-        <!-- More project cards here -->
-        
       </div>
     </div>
   </section>
@@ -61,18 +58,14 @@
     <div class="container">
       <h2>Experience</h2>
       <div class="experience-list">
-        
         <div class="experience-item">
           <h3>Internship</h3>
           <p>Engineering & Data Solutions (EDS): Engineering Assistant — Summer 2024</p>
         </div>
-        
         <div class="experience-item">
           <h3>Landscaping</h3>
           <p>Lawn Mowing, Weeding, Leveling, etc. — Summers 2018 - 2020</p>
         </div>
-        <!-- More experience cards here -->
-        
       </div>
     </div>
   </section>
@@ -82,18 +75,14 @@
     <div class="container">
       <h2>Skills</h2>
       <div class="skills-list">
-        
         <div class="skills-item">
           <h3>Microcontrollers</h3>
           <p>Experienced with microcontroller projects, for example, Arduino, ESP32, Raspberry Pi. I've used these for many smaller-scale projects and to learn how they can be used for things like IoT devices, smart assistants, or off the grid tools/gadgets.</p>
         </div>
-        
         <div class="skills-item">
           <h3>Soldering</h3>
           <p>I have plenty of experience with soldering, both for personal projects and academic-related projects. I have used both conventional methods like solder pens and torch, and more specific methods like hot air and solder dipping.</p>
         </div>
-        <!-- More skill cards here -->
-        
       </div>
     </div>
   </section>
@@ -103,41 +92,37 @@
     <div class="container">
       <h2>Contact</h2>
       <p>Email: <a href="#" id="emailLink">salferrara55555@gmail.com</a></p>
-  
       <div class="social-links">
         <a href="https://www.linkedin.com/in/salvatore-ferrara-8399ab27a/" target="_blank">LinkedIn</a>
         <a href="https://github.com/SalFerrara5" target="_blank">GitHub</a>
-        <!-- More social links here -->
       </div>
     </div>
   </section>
   
-  <script>
-  // Copy email to clipboard
-  const email = "salferrara55555@gmail.com";
-  const link = document.getElementById("emailLink");
-  
-  link.addEventListener("click", function(e) {
-    e.preventDefault();
-    navigator.clipboard.writeText(email);
-  
-    const originalText = link.textContent;
-    link.textContent = "Email copied!";
-  
-    setTimeout(() => {
-      link.textContent = originalText;
-    }, 2000);
-  });
-  </script>
-
   <!-- Footer -->
   <footer>
     <p>© 2026 Salvatore Ferrara</p>
   </footer>
 
-  <!-- Smooth Scroll & Scroll Animations -->
+  <!-- Scripts -->
   <script>
-    // Smooth scroll only for nav links that are not "no-scroll"
+    // Copy email to clipboard
+    const email = "salferrara55555@gmail.com";
+    const link = document.getElementById("emailLink");
+
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      navigator.clipboard.writeText(email);
+
+      const originalText = link.textContent;
+      link.textContent = "Email copied!";
+
+      setTimeout(() => {
+        link.textContent = originalText;
+      }, 2000);
+    });
+
+    // Smooth scroll for nav links
     const links = document.querySelectorAll('nav a');
     links.forEach(link => {
       if (!link.classList.contains('no-scroll')) {
@@ -149,41 +134,26 @@
       }
     });
 
-<!-- Smooth Scroll & Scroll Animations -->
-<script>
-  // Smooth scroll only for nav links that are not "no-scroll"
-  const links = document.querySelectorAll('nav a');
-  links.forEach(link => {
-    if (!link.classList.contains('no-scroll')) {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        document.querySelector(link.getAttribute('href'))
-                .scrollIntoView({ behavior: 'smooth' });
+    // Fade in/out cards, experience, and skills
+    const faders = document.querySelectorAll('.card, .experience-item, .skills-item');
+
+    const appearOptions = { 
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('appear');
+        } else {
+          entry.target.classList.remove('appear');
+        }
       });
-    }
-  });
+    }, appearOptions);
 
-  // Fade in when entering viewport, fade out when leaving
-  const faders = document.querySelectorAll('.card, .experience-item, .skills-item');
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
 
-  const appearOptions = { 
-    threshold: 0.2, 
-    rootMargin: "0px 0px -50px 0px" 
-  };
-
-  const appearOnScroll = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-
-      if (entry.isIntersecting) {
-        entry.target.classList.add('appear');
-      } else {
-        entry.target.classList.remove('appear');
-      }
-
-    });
-  }, appearOptions);
-
-  faders.forEach(fader => appearOnScroll.observe(fader));
-</script>
 </body>
 </html>
