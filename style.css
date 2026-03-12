@@ -197,6 +197,21 @@ header {
   transform: translateY(0);
 }
 
+.skills-item {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.skills-item.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Contact */
 .social-links a {
   margin-right: 1rem;
