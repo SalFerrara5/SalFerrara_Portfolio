@@ -78,6 +78,7 @@ header {
 /* Optional: text-shadow for readability if needed */
 .hero h1, .hero p {
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+  z-index: 2;
 }
 
 /* Desktop / default sizes */
