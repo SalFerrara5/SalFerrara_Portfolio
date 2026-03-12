@@ -52,47 +52,52 @@ header {
 .hero {
   position: relative;
   background: url('images/hero_background.jpg') center/cover no-repeat;
-  background-size: cover; /* ensure the image fully covers the area */
-  min-height: 100vh;       /* make it always at least full screen */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: #fff;
-  padding: 0 1rem;
-  padding-top: 60px;       /* space for the fixed nav */
-  box-sizing: border-box;  /* ensures padding is counted in height */
-  z-index: 1;  
+  padding-top: 60px; /* space for fixed nav */
+  box-sizing: border-box;
+  overflow: visible;  /* ensures shadows aren’t clipped */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4); /* optional overlay for readability */
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
-  margin-top: 10vh;  /* pushes text down from top */
+  z-index: 2; /* sits above image and overlay */
   font-weight: 700;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 1s forwards 0.3s;
+  max-width: 900px;
 }
 
-/* Optional: text-shadow for readability if needed */
+/* Darker drop shadow for text */
 .hero h1, .hero p {
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
-  z-index: 2;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.85);
 }
 
-/* Desktop / default sizes */
+/* Desktop sizes */
 .hero .hero-content h1 {
-  font-size: 4rem;   /* main heading bigger */
+  font-size: 4rem;
   margin-bottom: 0.5rem;
 }
 
 .hero .hero-content p {
-  font-size: 1.5rem; /* subtitle bigger */
-  color: #FFF;       /* optional: softer color */
+  font-size: 1.5rem;
+  color: #fff;
 }
 
-/* Responsive sizes for smaller screens */
+/* Responsive sizes */
 @media (max-width: 768px) {
   .hero .hero-content h1 {
     font-size: 3rem;
@@ -102,7 +107,7 @@ header {
   }
 }
 
-/* fade-in keyframes */
+/* fade-in animation */
 @keyframes fadeInUp {
   to {
     opacity: 1;
