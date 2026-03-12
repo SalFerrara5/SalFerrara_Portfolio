@@ -149,20 +149,41 @@
       }
     });
 
-    // Simple scroll fade-in for sections
-    const faders = document.querySelectorAll('.card, .experience-item, .skills-item');
-    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('appear');
-          observer.unobserve(entry.target);
-        }
+<!-- Smooth Scroll & Scroll Animations -->
+<script>
+  // Smooth scroll only for nav links that are not "no-scroll"
+  const links = document.querySelectorAll('nav a');
+  links.forEach(link => {
+    if (!link.classList.contains('no-scroll')) {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href'))
+                .scrollIntoView({ behavior: 'smooth' });
       });
-    }, appearOptions);
+    }
+  });
 
-    faders.forEach(fader => appearOnScroll.observe(fader));
-  </script>
+  // Fade in when entering viewport, fade out when leaving
+  const faders = document.querySelectorAll('.card, .experience-item, .skills-item');
 
+  const appearOptions = { 
+    threshold: 0.2, 
+    rootMargin: "0px 0px -50px 0px" 
+  };
+
+  const appearOnScroll = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+        entry.target.classList.add('appear');
+      } else {
+        entry.target.classList.remove('appear');
+      }
+
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
 </body>
 </html>
